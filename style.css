@@ -550,3 +550,524 @@ transform: translateY(-20px) scale(1.1);
         line-height: 1.8;
     }
 }
+/* =========================
+   Skills Section
+========================= */
+
+.skills {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 70px;
+
+    animation: sectionReveal 1s ease forwards;
+}
+
+.skills h3,
+.education h3 {
+    position: relative;
+
+    font-size: 2rem;
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    color: #1e293b;
+}
+
+
+/* Animated line under title */
+
+.skills h3::after,
+.education h3::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 4px;
+
+    margin: 12px auto 0;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    animation: titleLine 2s ease-in-out infinite;
+}
+
+@keyframes titleLine {
+    0%,
+    100% {
+        width: 60px;
+    }
+
+    50% {
+        width: 120px;
+    }
+}
+
+
+/* =========================
+   Skill List
+========================= */
+
+.skills-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 18px;
+}
+
+
+/* =========================
+   Skill Item
+========================= */
+
+.skills-list span {
+    position: relative;
+
+    padding: 13px 24px;
+
+    border-radius: 50px;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    color: #334155;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid rgba(139, 92, 246, 0.2);
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.08);
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* Gradient animation layer */
+
+.skills-list span::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        120deg,
+        #8b5cf6,
+        #06b6d4,
+        #8b5cf6
+    );
+
+    background-size: 200% 200%;
+
+    opacity: 0;
+
+    z-index: -1;
+
+    transition: opacity 0.4s ease;
+
+    animation: skillGradient 3s ease infinite;
+}
+
+@keyframes skillGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* =========================
+   Skill Hover
+========================= */
+
+.skills-list span:hover {
+    color: white;
+
+    transform:
+        translateY(-8px)
+        scale(1.05);
+
+    border-color: transparent;
+
+    box-shadow:
+        0 15px 35px rgba(139, 92, 246, 0.3);
+}
+
+.skills-list span:hover::before {
+    opacity: 1;
+}
+
+
+/* =========================
+   Skill Entrance Animation
+========================= */
+
+.skills-list span {
+    animation: skillAppear 0.7s ease forwards;
+}
+
+.skills-list span:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.skills-list span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.skills-list span:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.skills-list span:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.skills-list span:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.skills-list span:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.skills-list span:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.skills-list span:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+@keyframes skillAppear {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   Education Section
+========================= */
+
+.education {
+    width: 100%;
+    max-width: 950px;
+
+    margin-top: 100px;
+
+    position: relative;
+
+    animation: sectionReveal 1s ease forwards;
+}
+
+
+/* =========================
+   Education Timeline
+========================= */
+
+.education::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 90px;
+    bottom: 0;
+
+    width: 3px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        to bottom,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    border-radius: 10px;
+
+    animation: timelineGrow 2s ease forwards;
+}
+
+@keyframes timelineGrow {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: calc(100% - 90px);
+    }
+}
+
+
+/* =========================
+   Education Item
+========================= */
+
+.education-item {
+    position: relative;
+
+    width: 45%;
+
+    padding: 28px;
+
+    margin-bottom: 45px;
+
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid rgba(139, 92, 246, 0.15);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Left / Right timeline */
+
+.education-item:nth-of-type(odd) {
+    margin-right: auto;
+}
+
+.education-item:nth-of-type(even) {
+    margin-left: auto;
+}
+
+
+/* =========================
+   Timeline Dot
+========================= */
+
+.education-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 30px;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    border: 4px solid #f8fafc;
+
+    box-shadow:
+        0 0 0 4px rgba(139, 92, 246, 0.15),
+        0 0 20px rgba(6, 182, 212, 0.5);
+
+    animation: dotPulse 2s ease-in-out infinite;
+}
+
+
+/* Left dot */
+
+.education-item:nth-of-type(odd)::before {
+    right: -58px;
+}
+
+
+/* Right dot */
+
+.education-item:nth-of-type(even)::before {
+    left: -58px;
+}
+
+
+@keyframes dotPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+
+/* =========================
+   Education Hover
+========================= */
+
+.education-item:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(139, 92, 246, 0.4);
+
+    box-shadow:
+        0 20px 45px rgba(139, 92, 246, 0.18);
+}
+
+
+/* =========================
+   Education Text
+========================= */
+
+.education-item h4 {
+    font-size: 1.3rem;
+
+    margin-bottom: 10px;
+
+    color: #1e293b;
+}
+
+.education-item p {
+    padding: 0 !important;
+
+    margin: 0 0 12px !important;
+
+    box-shadow: none !important;
+
+    border: none !important;
+
+    background: transparent !important;
+
+    color: #64748b !important;
+
+    line-height: 1.7;
+}
+
+.education-item span {
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 50px;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #06b6d4
+    );
+}
+
+
+/* =========================
+   Section Reveal
+========================= */
+
+@keyframes sectionReveal {
+    from {
+        opacity: 0;
+
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+    .skills {
+        margin-top: 50px;
+    }
+
+    .skills h3,
+    .education h3 {
+        font-size: 1.7rem;
+    }
+
+    .skills-list {
+        gap: 12px;
+    }
+
+    .skills-list span {
+        padding: 10px 17px;
+
+        font-size: 0.85rem;
+    }
+
+
+    /* Remove center timeline */
+
+    .education::before {
+        left: 8px;
+        transform: none;
+    }
+
+    .education-item {
+        width: calc(100% - 35px);
+
+        margin-left: 35px !important;
+        margin-right: 0 !important;
+
+        padding: 22px;
+    }
+
+
+    .education-item::before {
+        left: -35px !important;
+        right: auto !important;
+    }
+}
