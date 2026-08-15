@@ -1,22 +1,312 @@
+/* =========================
+   Global Reset
+========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-header {
-    background-color: #222;
-    color: white;
-    padding: 20px;
+html {
+    scroll-behavior: smooth;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+header {
+    min-height: 100vh;
+    padding: 30px 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #f8fafc;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(139, 92, 246, 0.35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(6, 182, 212, 0.3),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554,
+            #1e1b4b
+        );
+
+    position: relative;
+    overflow: hidden;
+
+    animation: headerAppear 1s ease forwards;
+}
+
+
+/* =========================
+   Header Animation
+========================= */
+
+@keyframes headerAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   Portfolio Title
+========================= */
+
+header h2 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: titleAppear 1.2s ease forwards;
+}
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   Tagline
+========================= */
+
+header p {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 40px;
+
+    animation: textAppear 1.5s ease forwards;
+}
+
+@keyframes textAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   Navigation
+========================= */
 
 nav ul {
     list-style: none;
+
     display: flex;
-    gap: 20px;
+    gap: 35px;
+
+    animation: navAppear 1.8s ease forwards;
 }
 
+@keyframes navAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   Navigation Links
+========================= */
+
 nav a {
-    color: white;
+    position: relative;
+
+    color: #e2e8f0;
+
     text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    padding: 8px 0;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================
+   Animated Underline
+========================= */
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    box-shadow:
+        0 0 8px rgba(6, 182, 212, 0.8);
+
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #06b6d4;
+
+    transform: translateY(-3px);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   Floating Background Effect
+========================= */
+
+header::before,
+header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(139, 92, 246, 0.2);
+
+    box-shadow:
+        0 0 50px rgba(139, 92, 246, 0.15);
+
+    animation: floating 6s ease-in-out infinite;
+}
+
+header::before {
+    top: -120px;
+    left: -120px;
+}
+
+header::after {
+    bottom: -120px;
+    right: -120px;
+
+    border-color: rgba(6, 182, 212, 0.2);
+
+    box-shadow:
+        0 0 50px rgba(6, 182, 212, 0.15);
+
+    animation-delay: 2s;
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-25px) scale(1.1);
+    }
+}
+
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 30px 20px;
+    }
+
+    header h2 {
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+    }
+
+    header p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    nav ul {
+        gap: 20px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
 }
