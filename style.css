@@ -14,8 +14,8 @@ html {
 
 :root{
     --ink: #0f172a;
-    --ink-soft: #475569;
-    --paper: #f6f5f2;
+    --ink-soft: #1e5cb3;
+    --paper: #4d3d10;
     --card: #ffffff;
     --line: #e7e5e0;
     --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
