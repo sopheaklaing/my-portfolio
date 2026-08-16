@@ -296,3 +296,17 @@ Merge to Main
      ↓
 Push to GitHub
 ```
+
+## Challenge 2: Commit Amending
+
+### Step 1: Create footer.html
+
+Created a new `footer.html` file with basic footer content.
+
+### Step 2: Commit with a typo
+
+Initially committed the file using:
+
+```bash
+git add footer.html
+git commit -m "feat: add foter section"
